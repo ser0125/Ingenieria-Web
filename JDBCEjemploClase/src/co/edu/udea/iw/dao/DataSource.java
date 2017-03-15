@@ -9,28 +9,35 @@ import co.edu.udea.iw.exception.MyException;
 /**
  * 
  * @author sergio.llanos
- *
+ * @version 1.0
  */
-
 public class DataSource {
+
+	private static Connection connection; //Conexion con singleton
 	
- //Funcion estatica que crea un objeto de tipo connection
-	//y lanza la clase MyException
-	//El throws esta diciendo que el metodo que lo utilice debe mandar esta excepcion
-	//getConnection() es un metodo de la clase Connection
-	public static Connection getConnection() throws MyException{
-		Connection con=null;   //Creamos la conexi贸n con la BD
-	try{
-		Class.forName("com.mysql.jdbc.Driver"); //Cargar el driver de la BD
-		con= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/camiloClase","root","root");//Creamos la conexi贸n a la BD 
-			}catch(ClassNotFoundException e){
-				//En un nuevo hilo se va a manejar esta excepcion
-				throw new MyException("Driver no encontrado", e);
-			}catch(SQLException e){
-				throw new MyException("No puede establecer conexi贸n", e);
+	//El throw es para lanzar hacia arriba la excepci髇
+	public static Connection getConnection() throws MyException
+	{
+		try
+		{ 
+			if(connection == null || connection.isClosed())
+			{
+				//Cargamos el driver de la BD
+				Class.forName("com.mysql.jdbc.Driver"); 
+				// Conexi髇 con la base de datos
+			    connection= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/Sergio","root","root");
 			}
-	return con;
+		}
+		//Al llamar ese driver puede que la clase no exista
+		catch(ClassNotFoundException e)
+		{
+			throw new MyException("Driver no encontrado",e);
+		}
+		catch(SQLException e)
+		{
+			throw new MyException("No se puede establecer conexi贸n",e);
+		}
 		
+		return connection;
 	}
-	
 }

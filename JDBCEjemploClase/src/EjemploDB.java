@@ -3,39 +3,46 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-//Se cre ala clase
+/**
+ * 
+ * @author sergio.llanos
+ * @version 1.0
+ * @description Clase que tiene el main de la aplicaciÛn, osea que al correrla se realizara lo que
+ * tenga el main
+ */
 public class EjemploDB {
 	
-
+//Clase principal que realiza el metodo consultarciudades
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 			
+		//Se llama al metodo
 		consultarCiudades();
 		
 	}
 	
-	//Se define un m√©todo 
+	/*Se define el metodo consultarCiudades() el cual cargara el driver y traera una consulta de 
+	la base de datos*/
 	public static  void consultarCiudades()
 	{
-		Connection con=null;   //Creamos la conexi√≥n con la BD
-		PreparedStatement ps =null; //Realizamos la consulta
-		ResultSet rs =null; //Contiene los datos obtenidos de la consulta realizada
+		Connection con=null;   //Creamos un objeto connection
+		PreparedStatement ps =null; //Creamos un objeto PreparedStatement
+		ResultSet rs =null; //Creamos un objeto ResultSet
 		
 		try
 		{
-			Class.forName("com.mysql.jdbc.Driver"); //Cargar el driver de la BD
-				
-			con= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/camiloClase","root","root");//Creamos la conexi√≥n a la BD 
-			ps = con.prepareStatement("select * from ciudades");
-			rs = ps.executeQuery();
+			Class.forName("com.mysql.jdbc.Driver"); //Cargamos el driver de la BD
+			//Creamos la conexiÛn a la BD
+			con= DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/Sergio","root","root"); 
+			ps = con.prepareStatement("select * from ciudades");//Realizamos la consulta
+			rs = ps.executeQuery(); //Ejecutamos la consulta y la guardamos en ese objeto
 			
-			while(rs.next())  //iterar datos traidos, retorna false cuando se dejan de traer datos
+			while(rs.next())  //Se van pasando los datos que se trajeron de la consulta
 			{
 				System.out.println(rs.getString("codigo")+ ":" + rs.getString("Nombre"));
 			}
 		}
-		catch(ClassNotFoundException e) //Puede que al llamar ese driver la clase no exita
+		catch(ClassNotFoundException e) //Al llamar ese driver puede que la clase no exista
 		{
 			e.printStackTrace();
 		}
@@ -43,7 +50,7 @@ public class EjemploDB {
 		{
 			e.printStackTrace();
 		}
-		//Cerrar las conexiones de la BD en el orden contrario a como se abrieron
+		//Se cierran las conexiones de la BD en el orden contrario a como se abrieron
 		finally{
 			try{
 				rs.close();
