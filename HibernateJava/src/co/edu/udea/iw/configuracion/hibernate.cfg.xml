@@ -10,13 +10,15 @@
     </property>
     <property name="connection.url">
     <!-- Url de la base de datos -->
-    jdbc:mysql://127.0.0.3306/Sergio
+    jdbc:mysql://localhost:3306/Sergio
     </property>
     <!-- Url de la base de datos -->
     <property name="connection.username">
+    root
     </property>
     <!-- Url de la base de datos -->
     <property name="connection.password">
+    root
     </property>
 <!-- Sirve para que el identifique cual es la base de datos-->
     <property name="dialect">
@@ -27,5 +29,6 @@
     <property name="show_sql">
     true
     </property>
+    <mapping resource="co/edu/udea/iw/dto/Ciudad.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    <property name="connection.driver_class">
+    <!-- Driver de SQL -->
+    com.mysql.jdbc.Driver
+    </property>
+    <property name="connection.url">
+    <!-- Url de la base de datos -->
+    jdbc:mysql://localhost:3306/Sergio
+    </property>
+    <!-- Url de la base de datos -->
+    <property name="connection.username">
+    </property>
+    <!-- Url de la base de datos -->
+    <property name="connection.password">
+    </property>
+<!-- Sirve para que el identifique cual es la base de datos-->
+    <property name="dialect">
+    org.hibernate.dialect.MySQLDialect
+    </property>
+     <!-- Para que en la consola en tiempo de desarrolla
+      salgan las consultas que se estan haciendo-->
+    <property name="show_sql">
+    true
+    </property>
+    <mapping resource="co/edu/udea/iw/dto/Ciudad.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,25 @@
+package co.edu.udea.iw.impl;
+
+import javax.sql.DataSource;
+
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.classic.Session;
+
+import co.edu.udea.iw.exception.MyException;
+
+public class CiudadDAOImpl implements CiudadDAO {
+
+	public List<Ciudad> obtener() throws MyException{
+		List<Ciudad> lista = new ArrayList<>();
+		Session session=null;
+		try{
+			session=DataSource.getInstance().getSession();
+			Criteria criteria=session.createCriteria(Ciudad.class);
+			lista= criteria.list();
+		}catch (HibernateException e){
+			throw new MyException("Error consultando ciudades", e);
+		}
+		return lista;
+	}
+}

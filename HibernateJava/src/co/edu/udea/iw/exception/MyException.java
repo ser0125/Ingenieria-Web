@@ -3,12 +3,16 @@
  */
 package co.edu.udea.iw.exception;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author sergio.llanos
  *
  */
 public class MyException extends Exception {
 
+	Logger log =Logger.getLogger(this.getClass());
+	
 	/**
 	 * @param message
 	 * @param cause
@@ -26,6 +30,7 @@ public class MyException extends Exception {
 	 */
 	public MyException(String message, Throwable cause) {
 		super(message, cause);
+		log.error(message,cause);
 		// TODO Auto-generated constructor stub
 	}
 

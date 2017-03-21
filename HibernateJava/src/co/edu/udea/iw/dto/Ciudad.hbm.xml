@@ -9,7 +9,7 @@
             <generator class="assigned" /><!-- Como se va a generar la clave primaria -->
         </id>
         <property name="Nombre" type="java.lang.String"><!-- Columna que no es clave primaria -->
-            <column name="NOMBRE" length="50" not null="true" />
+            <column name="NOMBRE" length="50" not-null="true" />
             <!-- Atributo length sirve para que hibernate intercepte 
             antes de llegar a la base de datos, se utiliza
              precision para los que no son string y si es decimal 
