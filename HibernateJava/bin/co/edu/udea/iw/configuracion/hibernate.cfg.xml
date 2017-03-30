@@ -33,5 +33,6 @@
          <mapping resource="co/edu/udea/iw/dto/Rol.hbm.xml"/> 
              <mapping resource="co/edu/udea/iw/dto/Usuario.hbm.xml"/> 
              	<mapping resource="co/edu/udea/iw/dto/Cliente.hbm.xml"/>
+             		<mapping resource="co/edu/udea/iw/dto/DireccionId.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

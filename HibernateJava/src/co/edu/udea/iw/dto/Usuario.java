@@ -14,6 +14,7 @@ public class Usuario {
 	private String Apellidos ;
 	private String Contrasena ;
 	private Rol rol;
+	
 	public String getLogin() {
 		return Login;
 	}

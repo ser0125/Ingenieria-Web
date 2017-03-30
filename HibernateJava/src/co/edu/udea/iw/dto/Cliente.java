@@ -4,6 +4,7 @@
 package co.edu.udea.iw.dto;
 
 import java.sql.Date;
+import java.util.Set;
 
 /**
  * @author Sergio.llanos
@@ -24,7 +25,22 @@ public class Cliente {
 	private Boolean eliminado;	
 	private Usuario usuarioElimina;
 	private Date fechaEliminacion;
+	private Set<Direccion> direcciones;
 	
+
+	
+	/**
+	 * @return the direcciones
+	 */
+	public Set<Direccion> getDirecciones() {
+		return direcciones;
+	}
+	/**
+	 * @param direcciones the direcciones to set
+	 */
+	public void setDirecciones(Set<Direccion> direcciones) {
+		this.direcciones = direcciones;
+	}
 	/**
 	 * @return the cedula
 	 */
