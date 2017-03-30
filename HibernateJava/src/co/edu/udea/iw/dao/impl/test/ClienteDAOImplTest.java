@@ -15,7 +15,7 @@ public class ClienteDAOImplTest {
 
 	@Test
 	public void testObtener() {
-		ClienteDAOImpl clienteDAO = null;
+		ClienteDAO clienteDAO = null;
 		List<Cliente> resultado = null;
 		
 		try {
