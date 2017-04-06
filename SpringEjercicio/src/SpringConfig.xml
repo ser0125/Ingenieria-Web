@@ -40,6 +40,9 @@
 	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="SessionFactory">
 		</property>
-		<property name="dataSource" ref="DataSource"></property>>
+		<property name="dataSource" ref="DataSource"></property>
+	</bean>
+	<bean id="ciudadDAO" class="co.edu.udea.iw.dao.impl.CiudadDAOImpl">
+	<property name="sessionFactory" ref="SessionFactory"></property>
 	</bean>
 </beans>
